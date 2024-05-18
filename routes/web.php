@@ -12,11 +12,19 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\Models\Penulis; //membuat welcome menjadi tampilan data penulis
 Route::get('/', function () {
-    return view('welcome');
+    $penulis = Penulis::all();
+    return view('welcome', compact('penulis'));
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+use App\Http\Controllers\PenulisController;
+Route::resource('penulis', PenulisController::class);
+
+use App\Http\Controllers\BukuController;
+Route::resource('buku', BukuController::class);
