@@ -13,7 +13,8 @@ class BukuController extends Controller
      */
     public function index()
     {
-        //
+        $buku = Buku::all();
+        return view('buku.index', compact('buku'));
     }
 
     /**
@@ -23,7 +24,7 @@ class BukuController extends Controller
      */
     public function create()
     {
-        //
+        return view('buku.create');
     }
 
     /**
@@ -34,7 +35,22 @@ class BukuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $buku = new Buku;
+        $buku->judul_buku = $request->judul_buku;
+        $buku->deskripsi = $request->deskripsi;
+        $buku->kategori = $request->kategori;
+        $buku->tanggal_terbit = $request->tanggal_terbit;
+        $buku->id_penulis = $request->id_penulis;
+
+        // if($request->hasFile('cover')){
+        //     $img = $request->file('cover');
+        //     $name = rand(1000,9000) . $img->getClientOriginalName();
+        //     $img->move('image/penulis', $name);
+        //     $buku->cover= $name;
+        // }
+
+        $buku->save();
+        return redirect()->route('buku.index')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**

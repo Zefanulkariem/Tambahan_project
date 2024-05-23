@@ -58,7 +58,7 @@
                                     {{-- Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end. --}}
                                     @foreach ($penulis as $data)  {{--merubah ke tampilan penulis--}}
                                     - <td>{{$data->nama_penulis}}</td> <br>
-                                    - <img src="{{asset('/image/penulis/' . $data->cover) }}" width="100">
+                                    - <img src="{{asset('/image/penulis/' . $data->cover) }}" width="100"> <br>
                                     @endforeach
                                 </div>
                             </div>

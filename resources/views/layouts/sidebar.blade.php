@@ -18,6 +18,9 @@
             <li>
                 <a href="{{route('penulis.index')}}"><i class="fa fa-table fa-fw"></i> Penulis</a>
             </li>
+            <li>
+                <a href="{{route('buku.index')}}"><i class="fa fa-table fa-fw"></i> Buku</a>
+            </li>
         </ul>
     </div>
 </div>

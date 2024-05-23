@@ -55,7 +55,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Data Penulis</h1>
+                            <h1 class="page-header">Data Buku</h1>
                         </div>
                     </div>
                     <div class="row">
@@ -67,26 +67,33 @@
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <form action="{{ route('penulis.store') }}" method="POST" role="from" enctype="multipart/form-data">
+                                            <form action="{{ route('buku.store') }}" method="POST" role="from" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="form-group">
-                                                    <label>Nama Penulis</label>
-                                                    <input type="text" class="form-control" name="nama_penulis" placeholder="Nama Penulis">
+                                                    <label>Judul Buku</label>
+                                                    <input type="text" class="form-control" name="judul_buku" placeholder="Judul Buku">
                                                 </div>
                                                 <div>
-                                                    <label>Jenis Kelamin</label>
-                                                    <br>
-                                                    <div>
-                                                        <input type="radio" name="jenis_kelamin" value="Laki-laki"> Laki-laki
-                                                        <input type="radio" name="jenis_kelamin" value="Perempuan"> Perempuan
-                                                    </div>
-                                                    <br>
+                                                    <label>Deskripsi</label>
+                                                    <input type="text" class="form-control" name="deskripsi" placeholder="Deskripsi">
                                                 </div>
                                                 <div>
+                                                    <label>Kategori</label>
+                                                    <input type="text" class="form-control" name="kategori" placeholder="Kategori">
+                                                </div>
+                                                <div>
+                                                    <label>Tanggal Terbit</label>
+                                                    <input type="text" class="form-control" name="tanggal_terbit" placeholder="Tanggal Terbit">
+                                                </div>
+                                                <div>
+                                                    <label>ID</label>
+                                                    <input type="text" class="form-control" name="id_penulis" placeholder="Id_penulis">
+                                                </div>
+                                                {{-- <div>
                                                     <label class="form-label">Cover</label>
                                                     <input type="file" class="form-control" name="cover">
-                                                </div>
-                                                <a href="{{ route('penulis.index') }}" class="btn btn-primary">Kembali</a>
+                                                </div> --}}
+                                                <a href="{{ route('buku.index') }}" class="btn btn-primary">Kembali</a>
                                                 <button type="submit" class="btn btn-primary">Tambah</button>
                                             </form>
                                         </div>
