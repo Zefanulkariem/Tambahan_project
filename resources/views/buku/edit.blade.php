@@ -67,8 +67,9 @@
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <form action="{{ route('buku.store') }}" method="POST" role="from" enctype="multipart/form-data">
+                                            <form action="{{ route('buku.update',$buku->id) }}" method="POST" role="from" enctype="multipart/form-data">
                                                 @csrf
+                                                @method('PUT')
                                                 <div class="form-group">
                                                     <label>Judul Buku</label>
                                                     <input type="text" class="form-control" name="judul_buku" placeholder="Judul Buku">
@@ -85,16 +86,17 @@
                                                     <label>Tanggal Terbit</label>
                                                     <input type="text" class="form-control" name="tanggal_terbit" placeholder="Tanggal Terbit">
                                                 </div>
-                                                <div>
-                                                    <label>ID</label>
-                                                    <input type="text" class="form-control" name="id_penulis" placeholder="Id_penulis">
-                                                </div>
+                                                {{-- <select class="form-control" name="id_brand">
+                                                    @foreach($penulis as $data)
+                                                        <option value="{{$data->id}}" {{$data->id == $penulis->id_brand ? 'selected' : '' }}>{{$data->nama_penulis}}</option> 
+                                                    @endforeach
+                                                </select> --}}
                                                 <div>
                                                     <label class="form-label">Cover</label>
                                                     <input type="file" class="form-control" name="cover">
                                                 </div>
                                                 <a href="{{ route('buku.index') }}" class="btn btn-primary">Kembali</a>
-                                                <button type="submit" class="btn btn-primary">Tambah</button>
+                                                <button type="submit" class="btn btn-primary">Ubah</button>
                                             </form>
                                         </div>
                                         <!-- /.col-lg-6 (nested) -->

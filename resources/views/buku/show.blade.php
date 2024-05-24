@@ -61,17 +61,28 @@
                                             <div class="col-lg-12">
                                                 @csrf
                                                 <div class="form-group" action="#" method="POST">
-                                                    <div>
-                                                        <label>Nama Penulis</label>
-                                                        <input type="text" class="form-control" name="nama_penulis" value="{{ $penulis->nama_penulis}}"
+                                                    <div class="form-group">
+                                                        <label>Judul Buku</label>
+                                                        <input type="text" class="form-control" name="judul_buku" value="{{$buku->judul_buku}}"
                                                         disabled><br>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label>Jenis Kelamin</label>
-                                                        <input type="text" class="form-control" name="jenis_kelamin" value="{{ $penulis->jenis_kelamin}}"
-                                                            disabled><br>
+                                                        <label>Deskripsi</label>
+                                                        <input type="text" class="form-control" name="deksripsi" value="{{$buku->deskripsi}}"
+                                                        disabled><br>
                                                     </div>
-                                                    <a href="{{ route('penulis.index') }}" class="btn btn-primary">Kembali</a> 
+                                                    <div class="form-group">
+                                                        <label>Kategori</label>
+                                                        <input type="text" class="form-control" name="judul_buku" value="{{$buku->kategori}}"
+                                                        disabled><br>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Tanggal Terbit</label>
+                                                        <input type="text" class="form-control" name="deksripsi" value="{{$buku->tanggal_terbit}}"
+                                                        disabled><br>
+                                                    </div>
+                                                    {{--  --}}
+                                                    <a href="{{ route('buku.index') }}" class="btn btn-primary">Kembali</a> 
                                                 </div>
                                             </div>
                                         </div>

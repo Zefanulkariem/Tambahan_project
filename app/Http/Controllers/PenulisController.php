@@ -86,6 +86,14 @@ class PenulisController extends Controller
     {
         $penulis = Penulis::findOrFail($id);
         $penulis->nama_penulis = $request->nama_penulis;
+
+        if($request->hasFile('cover')){
+            $img = $request->file('cover');
+            $name = rand(1000,9000) . $img->getClientOriginalName();
+            $img->move('image/penulis', $name);
+            $buku->cover= $name;
+        }
+        
         $penulis->save();
         return redirect()->route('penulis.index')->with('success', 'Data berhasil dirubah');
 

@@ -71,7 +71,7 @@
                                                 @csrf
                                                 @method('PUT')
                                                 <div class="form-group">
-                                                    <label>Text Input</label>
+                                                    <label>Nama Penulis</label>
                                                     <input type="text" class="form-control" name="nama_penulis" placeholder="Nama Penulis">
                                                 </div>
                                                 <div>
@@ -82,7 +82,7 @@
                                                 </div>
                                                 <br>
                                                 <a href="{{ route('penulis.index') }}" class="btn btn-primary">Kembali</a>
-                                                <button type="submit" class="btn btn-primary">Tambah</button>
+                                                <button type="submit" class="btn btn-primary">Ubah</button>
                                             </form>
                                         </div>
                                         <!-- /.col-lg-6 (nested) -->

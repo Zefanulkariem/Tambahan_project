@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('kategori');
             $table->date('tanggal_terbit');
             $table->unsignedBigInteger('id_penulis');
+            $table->string('cover');
             $table->timestamps();
 
             $table->foreign('id_penulis')->references('id')->on('penulis')->onDelete('cascade');

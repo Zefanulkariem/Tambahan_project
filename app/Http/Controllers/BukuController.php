@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Buku;
+use App\Models\Penulis;
 use Illuminate\Http\Request;
 
 class BukuController extends Controller
@@ -42,12 +43,12 @@ class BukuController extends Controller
         $buku->tanggal_terbit = $request->tanggal_terbit;
         $buku->id_penulis = $request->id_penulis;
 
-        // if($request->hasFile('cover')){
-        //     $img = $request->file('cover');
-        //     $name = rand(1000,9000) . $img->getClientOriginalName();
-        //     $img->move('image/penulis', $name);
-        //     $buku->cover= $name;
-        // }
+        if($request->hasFile('cover')){
+            $img = $request->file('cover');
+            $name = rand(1000,9000) . $img->getClientOriginalName();
+            $img->move('image/penulis', $name);
+            $buku->cover= $name;
+        }
 
         $buku->save();
         return redirect()->route('buku.index')->with('success', 'Data berhasil ditambahkan');
@@ -61,7 +62,8 @@ class BukuController extends Controller
      */
     public function show($id)
     {
-        //
+        $buku = Buku::findOrFail($id);
+        return view('buku/show', compact('buku'));
     }
 
     /**
@@ -72,7 +74,8 @@ class BukuController extends Controller
      */
     public function edit($id)
     {
-        //
+        $buku = Buku::findOrFail($id);
+        return view('buku.edit', compact('buku'));
     }
 
     /**
@@ -84,7 +87,22 @@ class BukuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $buku = Buku::findOrFail($id);
+        $buku->judul_buku = $request->judul_buku;
+        $buku->deskripsi = $request->deskripsi;
+        $buku->kategori = $request->kategori;
+        $buku->tanggal_terbit = $request->tanggal_terbit;
+        // $buku->id_penulis = $request->id_penulis;
+
+        if($request->hasFile('cover')){
+            $img = $request->file('cover');
+            $name = rand(1000,9000) . $img->getClientOriginalName();
+            $img->move('image/penulis', $name);
+            $buku->cover= $name;
+        }
+        
+        $buku->save();
+        return redirect()->route('buku.index')->with('success', 'Data berhasil dirubah');
     }
 
     /**
@@ -95,6 +113,8 @@ class BukuController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $buku = Buku::findOrFail($id);
+        $buku->delete();
+        return redirect()->route('buku.index')->with('success', 'Data berhasil dihapus');
     }
 }

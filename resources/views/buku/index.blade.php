@@ -85,9 +85,9 @@
                                                     <th>Deskripsi</th>
                                                     <th>Kategori</th>
                                                     <th>Tanggal Terbit</th>
-                                                    <th>ID</th>
+                                                    <th>Nama Penulis</th>
                                                     <th>Aksi</th>
-                                                    {{-- <th>Cover</th> --}}
+                                                    <th>Cover</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -96,7 +96,7 @@
                                                 @endphp
                                                 @foreach ( $buku as $data )
                                                 <tr class="odd gradeX">
-                                                    {{-- <form action="{{route('penulis.destroy', $data->id)}}" method="POST"> --}}
+                                                    <form action="{{route('buku.destroy', $data->id)}}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                         <td>{{$no++}}</td>
@@ -104,15 +104,15 @@
                                                         <td>{{$data->deskripsi}}</td>
                                                         <td>{{$data->kategori}}</td>
                                                         <td>{{$data->tanggal_terbit}}</td>
-                                                        <td>{{$data->penulis->id}}</td>
+                                                        <td>{{$data->penulis->nama_penulis}}</td>
                                                         <td class="center">
-                                                            <a href="{{route('penulis.edit',$data->id)}}" class="btn btn-success">Ubah</a>
-                                                            {{-- <a href="{{route('penulis.show',$data->id)}}" class="btn btn-warning">Detail</a> --}}
+                                                            <a href="{{route('buku.edit',$data->id)}}" class="btn btn-success">Ubah</a>
+                                                            <a href="{{route('buku.show',$data->id)}}" class="btn btn-warning">Detail</a>
                                                             <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah yakin ingin menghapus data ini?')">Hapus</button>
                                                         </td>
-                                                        {{-- <td>
+                                                        <td>
                                                             <img src="{{asset('/image/penulis/' . $data->cover) }}" width="100">
-                                                        </td> --}}
+                                                        </td>
                                                     </form>
                                                 </tr>
                                                 @endforeach
